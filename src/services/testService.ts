@@ -15,20 +15,24 @@ export async function createTest(data: ITest) {
   const { name, pdfUrl, categoryId, teacherId, disciplineId } = data;
 
   const category = await categoryService.getCategoryById(categoryId);
-  if (!category) throw { type: "Not found", message: "Category not found" };
+  if (!category) throw { type: "Not Found", message: "Category not found" };
 
   const teacher = await teacherService.getTeacherById(teacherId);
-  if (!teacher) throw { type: "Not found", message: "Teacher not found" };
+  if (!teacher) throw { type: "Not Found", message: "Teacher not found" };
 
   const discipline = await disciplineService.getDisciplineById(disciplineId);
-  if (!discipline) throw { type: "Not found", message: "Discipline not found" };
+  if (!discipline) throw { type: "Not Found", message: "Discipline not found" };
 
   const teacherDiscipline =
     await teacherDisciplineRepository.getTeacherDiscipline(
       teacherId,
       disciplineId
     );
-    if(!teacherDiscipline) throw {type: "Not found", message: "This relation of discipline and teacher does not exist"}
+  if (!teacherDiscipline)
+    throw {
+      type: "Not Found",
+      message: "This relation of discipline and teacher does not exist",
+    };
 
   const test = await testRepository.insertTest({
     name,
@@ -37,5 +41,10 @@ export async function createTest(data: ITest) {
     teachersDisciplinesId: teacherDiscipline.id,
   });
 
-  return
+  return;
+}
+
+export async function getTestDiscipline() {
+  const tests = await testRepository.getTestsFromDiscipline();
+  return tests;
 }
