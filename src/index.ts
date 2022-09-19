@@ -16,6 +16,4 @@ app.use(express.json());
 app.use(router);
 app.use(errorHadler);
 
-app.listen(PORT, () => {
-  console.log(`Rodando na porta = ${PORT}`);
-});
+export default app;
