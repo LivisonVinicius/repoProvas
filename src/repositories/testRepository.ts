@@ -6,7 +6,7 @@ export async function insertTest(data: ITestType) {
   return testInserted;
 }
 
-export async function getTestsFromDiscipline() {
+export async function getTestsDiscipline() {
   const terms = await client.term.findMany({
     select: {
       number: true,
@@ -70,6 +70,65 @@ export async function getTestsFromDiscipline() {
             .filter((categoryExists) => categoryExists.tests.length > 0),
         };
       }),
+    };
+  });
+
+  return testCategory;
+}
+
+export async function getTestTeacher() {
+  const teachers = await client.teacher.findMany({
+    select: {
+      id: true,
+      name: true,
+    },
+  });
+
+  const categories = await client.category.findMany({
+    select: {
+      id: true,
+      name: true,
+      tests: {
+        include: {
+          TeachersDisciplines: {
+            select: {
+              teacherId: true,
+              Discipline: {
+                select: {
+                  name: true,
+                  id: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+
+  const testCategory = teachers.map((teacher) => {
+    return {
+      id: teacher.id,
+      name: teacher.name,
+      categories: categories
+        .map((category) => {
+          return {
+            id: category.id,
+            name: category.name,
+            tests: category.tests
+              .map((test) => {
+                if (teacher.id === test.TeachersDisciplines.teacherId)
+                  return {
+                    id: test.id,
+                    name: test.name,
+                    disciplineName: test.TeachersDisciplines.Discipline.name,
+                    disciplineId: test.TeachersDisciplines.Discipline.id,
+                  };
+              })
+              .filter((testExists) => testExists),
+          };
+        })
+        .filter((categoryExists) => categoryExists.tests.length > 0),
     };
   });
 

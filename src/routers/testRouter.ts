@@ -1,5 +1,9 @@
 import { Router } from "express";
-import { createTest, getTestDiscipline } from "../controllers/testControllers";
+import {
+  createTest,
+  getTestDiscipline,
+  getTestTeacher,
+} from "../controllers/testControllers";
 import schemaValidator from "../middlewares/schemaValidator";
 import validateToken from "../middlewares/validateToken";
 
@@ -13,5 +17,7 @@ testRouter.post(
 );
 
 testRouter.get("/test/discipline", validateToken, getTestDiscipline);
+
+testRouter.get("/test/teacher", validateToken, getTestTeacher);
 
 export default testRouter;

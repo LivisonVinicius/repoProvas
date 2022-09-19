@@ -45,6 +45,11 @@ export async function createTest(data: ITest) {
 }
 
 export async function getTestDiscipline() {
-  const tests = await testRepository.getTestsFromDiscipline();
+  const tests = await testRepository.getTestsDiscipline();
+  return tests;
+}
+
+export async function getTestTeacher() {
+  const tests = await testRepository.getTestTeacher();
   return tests;
 }
