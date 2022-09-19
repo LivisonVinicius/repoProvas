@@ -5,11 +5,12 @@ import bcrypt from "bcrypt";
 
 export async function generateUser() {
   const password = generate({
-    length: 10,
+    length: 16,
     numbers: true,
     lowercase: true,
     uppercase: true,
     symbols: true,
+    strict: true,
   });
 
   const user = {
@@ -18,6 +19,7 @@ export async function generateUser() {
     confirmPassword: password,
   };
 
+  console.log(user);
   return user;
 }
 
@@ -27,7 +29,8 @@ export async function insertUser(user: {
   email: string;
 }) {
   const passwordHash = await bcrypt.hash(user.password, 10);
-  return await client.user.create({
+
+  return client.user.create({
     data: {
       email: user.email,
       password: passwordHash,

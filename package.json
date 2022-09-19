@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/server.ts",
-    "build": "tsc",
+    "build": "tsc && prisma migrate deploy && prisma db seed",
     "start": "node ./dist/src/server.js",
-    "test": "dotenv"
+    "test": " dotenv -e .env.test prisma migrate dev && dotenv -e .env.test prisma db seed && dotenv -e .env.test jest -i"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
