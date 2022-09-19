@@ -20,15 +20,13 @@ describe("POST /test", () => {
       .send(test);
     expect(response.status).toEqual(201);
   });
-  it("Must return 404, if tried to register a test with no matching category", async () => {
+  it("Must return 401, if token is not valid or not provided", async () => {
     const test = await generateTest();
-    const token = await generateToken();
-    test.categoryId = -1;
     const response = await agent
       .post("/test")
-      .set("Authorization", `Bearer ${token}`)
+      .set("Authorization", `Bearer ${"Yoyoyoyoyoyoyoyoyoyo"}`)
       .send(test);
-    expect(response.status).toEqual(404);
+    expect(response.status).toEqual(401);
   });
   it("Must return 404, if tried to register a test with no matching category", async () => {
     const test = await generateTest();
@@ -40,4 +38,35 @@ describe("POST /test", () => {
       .send(test);
     expect(response.status).toEqual(404);
   });
+  it("Must return 404, if tried to register a test with no matching discipline", async () => {
+    const test = await generateTest();
+    const token = await generateToken();
+    test.disciplineId = -1;
+    const response = await agent
+      .post("/test")
+      .set("Authorization", `Bearer ${token}`)
+      .send(test);
+    expect(response.status).toEqual(404);
+  });
+  it("Must return 404, if tried to register a test with no matching teacher", async () => {
+    const test = await generateTest();
+    const token = await generateToken();
+    test.teacherId = -1;
+    const response = await agent
+      .post("/test")
+      .set("Authorization", `Bearer ${token}`)
+      .send(test);
+    expect(response.status).toEqual(404);
+  });
+  it("Must return 404, if tried to register a test with no matching teacher and discipline combination", async () => {
+    const test = await generateTest();
+    const token = await generateToken();
+    test.teacherId = 2;
+    const response = await agent
+      .post("/test")
+      .set("Authorization", `Bearer ${token}`)
+      .send(test);
+    expect(response.status).toEqual(404);
+  });
+  
 });
