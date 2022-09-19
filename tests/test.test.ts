@@ -82,8 +82,26 @@ describe("GET /test/discipline", () => {
     expect(response.body).toBeInstanceOf(Array);
   });
   it("Must return 401, if token is not valid or not provided", async () => {
-    const token = await generateToken();
     const response = await agent.get("/test/discipline").send();
+    expect(response.status).toEqual(401);
+  });
+});
+
+describe("GET /test/teacher", () => {
+  it("Must return 200 and return an array, if token is valid", async () => {
+    const token = await generateToken();
+    const response = await agent
+      .get("/test/teacher")
+      .set("Authorization", `Bearer ${token}`)
+      .send();
+    expect(response.status).toEqual(200);
+    expect(response.body).toBeInstanceOf(Array);
+  });
+  it("Must return 401, if token is not valid or not provided", async () => {
+    const response = await agent
+      .get("/test/teacher")
+      .set("Authorization", `Bearer ${"Yoyoyoyoyoyoyoyoyoyo"}`)
+      .send();
     expect(response.status).toEqual(401);
   });
 });
