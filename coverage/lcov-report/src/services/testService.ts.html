@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.45% </span>
+                <span class="strong">27.27% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>47/55</span>
+                <span class='fraction'>15/55</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.45% </span>
+                <span class="strong">27.27% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>47/55</span>
+                <span class='fraction'>15/55</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -131,38 +131,38 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -186,38 +186,38 @@ interface ITest {
   disciplineId: number;
 }
 &nbsp;
-export async function createTest(data: ITest) {
-  const { name, pdfUrl, categoryId, teacherId, disciplineId } = data;
-&nbsp;
-  const category = await categoryService.getCategoryById(categoryId);
-  if (!category) throw { type: "Not Found", message: "Category not found" };
-&nbsp;
-  const teacher = await teacherService.getTeacherById(teacherId);
-  if (!teacher) throw { type: "Not Found", message: "Teacher not found" };
-&nbsp;
-  const discipline = await disciplineService.getDisciplineById(disciplineId);
-  if (!discipline) throw { type: "Not Found", message: "Discipline not found" };
-&nbsp;
-  const teacherDiscipline =
-    await teacherDisciplineRepository.getTeacherDiscipline(
-      teacherId,
-      disciplineId
-    );
-  if (!teacherDiscipline)
-    throw {
-      type: "Not Found",
-      message: "This relation of discipline and teacher does not exist",
-    };
-&nbsp;
-  const test = await testRepository.insertTest({
-    name,
-    pdfUrl,
-    categoryId,
-    teachersDisciplinesId: teacherDiscipline.id,
-  });
-&nbsp;
-  return;
-}
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export async function createTest(data: ITest) {</span></span>
+<span class="cstat-no" title="statement not covered" >  const { name, pdfUrl, categoryId, teacherId, disciplineId } = data;</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const category = await categoryService.getCategoryById(categoryId);</span>
+<span class="cstat-no" title="statement not covered" >  if (!category) throw { type: "Not Found", message: "Category not found" };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const teacher = await teacherService.getTeacherById(teacherId);</span>
+<span class="cstat-no" title="statement not covered" >  if (!teacher) throw { type: "Not Found", message: "Teacher not found" };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const discipline = await disciplineService.getDisciplineById(disciplineId);</span>
+<span class="cstat-no" title="statement not covered" >  if (!discipline) throw { type: "Not Found", message: "Discipline not found" };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const teacherDiscipline =</span>
+<span class="cstat-no" title="statement not covered" >    await teacherDisciplineRepository.getTeacherDiscipline(</span>
+<span class="cstat-no" title="statement not covered" >      teacherId,</span>
+<span class="cstat-no" title="statement not covered" >      disciplineId</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >  if (!teacherDiscipline)</span>
+<span class="cstat-no" title="statement not covered" >    throw {</span>
+<span class="cstat-no" title="statement not covered" >      type: "Not Found",</span>
+<span class="cstat-no" title="statement not covered" >      message: "This relation of discipline and teacher does not exist",</span>
+<span class="cstat-no" title="statement not covered" >    };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  const test = await testRepository.insertTest({</span>
+<span class="cstat-no" title="statement not covered" >    name,</span>
+<span class="cstat-no" title="statement not covered" >    pdfUrl,</span>
+<span class="cstat-no" title="statement not covered" >    categoryId,</span>
+<span class="cstat-no" title="statement not covered" >    teachersDisciplinesId: teacherDiscipline.id,</span>
+<span class="cstat-no" title="statement not covered" >  });</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  return;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export async function getTestDiscipline() {</span></span>
 <span class="cstat-no" title="statement not covered" >  const tests = await testRepository.getTestsDiscipline();</span>
@@ -235,7 +235,7 @@ export async function createTest(data: ITest) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-19T17:51:21.719Z
+                at 2022-09-19T18:23:06.499Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

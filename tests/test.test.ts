@@ -3,6 +3,7 @@ import supertest from "supertest";
 import { client } from "../src/database";
 import generateTest from "./factories/testFactory";
 import { generateToken } from "./factories/tokenFactory";
+import { array } from "joi";
 
 beforeEach(async () => {
   await client.$executeRaw`TRUNCATE TABLE tests`;
@@ -68,5 +69,21 @@ describe("POST /test", () => {
       .send(test);
     expect(response.status).toEqual(404);
   });
-  
+});
+
+describe("GET /test/discipline", () => {
+  it("Must return 200 and return an array, if token is valid", async () => {
+    const token = await generateToken();
+    const response = await agent
+      .get("/test/discipline")
+      .set("Authorization", `Bearer ${token}`)
+      .send();
+    expect(response.status).toEqual(200);
+    expect(response.body).toBeInstanceOf(Array);
+  });
+  it("Must return 401, if token is not valid or not provided", async () => {
+    const token = await generateToken();
+    const response = await agent.get("/test/discipline").send();
+    expect(response.status).toEqual(401);
+  });
 });

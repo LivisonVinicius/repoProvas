@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">29.41% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>5/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">29.41% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/17</span>
+                <span class='fraction'>5/17</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -83,37 +83,37 @@
 <a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { client } from "../database";
 import { IUserType } from "../types/userType";
 &nbsp;
-export async function insert(user: IUserType) {
-  await client.user.create({ data: user });
-  return;
-}
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export async function insert(user: IUserType) {</span></span>
+<span class="cstat-no" title="statement not covered" >  await client.user.create({ data: user });</span>
+<span class="cstat-no" title="statement not covered" >  return;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-export async function findByEmail(email: string) {
-  const user = await client.user.findFirst({ where: { email } });
-  return user;
-}
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export async function findByEmail(email: string) {</span></span>
+<span class="cstat-no" title="statement not covered" >  const user = await client.user.findFirst({ where: { email } });</span>
+<span class="cstat-no" title="statement not covered" >  return user;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-export async function findById(id: number) {
-  const user = await client.user.findFirst({ where: { id } });
-  return user;
-}
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export async function findById(id: number) {</span></span>
+<span class="cstat-no" title="statement not covered" >  const user = await client.user.findFirst({ where: { id } });</span>
+<span class="cstat-no" title="statement not covered" >  return user;</span>
+<span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -121,7 +121,7 @@ export async function findById(id: number) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-19T17:51:21.719Z
+                at 2022-09-19T18:23:06.499Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
