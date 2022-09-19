@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/index.ts",
+    "dev": "nodemon ./src/server.ts",
     "build": "tsc && npx prisma migrate deploy",
-    "start": "node ./dist/index.js",
+    "start": "node ./dist/server.js",
     "test": "dotenv"
   },
   "prisma": {

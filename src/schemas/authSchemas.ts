@@ -8,7 +8,7 @@ export const registerSchema = joi.object({
   email: joi.string().email().required(),
   password: joiPassword
     .string()
-    .min(8)
+    .min(10)
     .minOfLowercase(1)
     .minOfUppercase(1)
     .minOfNumeric(1)
