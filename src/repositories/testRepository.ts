@@ -19,5 +19,59 @@ export async function getTestsFromDiscipline() {
       },
     },
   });
-  return terms;
+
+  const categories = await client.category.findMany({
+    select: {
+      id: true,
+      name: true,
+      tests: {
+        include: {
+          TeachersDisciplines: {
+            select: {
+              disciplineId: true,
+              Teacher: {
+                select: {
+                  name: true,
+                  id: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+
+  const testCategory = terms.map((term) => {
+    return {
+      term: term.number,
+      disciplines: term.discipline.map((discipline) => {
+        return {
+          id: discipline.id,
+          name: discipline.name,
+          categories: categories
+            .map((category) => {
+              return {
+                id: category.id,
+                name: category.name,
+                tests: category.tests
+                  .map((test) => {
+                    if (test.TeachersDisciplines.disciplineId === discipline.id)
+                      return {
+                        id: test.id,
+                        name: test.name,
+                        teacherName: test.TeachersDisciplines.Teacher.name,
+                        pdfUrl: test.pdfUrl,
+                      };
+                  })
+                  .filter((testExists) => testExists),
+              };
+            })
+            .filter((categoryExists) => categoryExists.tests.length > 0),
+        };
+      }),
+    };
+  });
+
+  return testCategory;
 }
